@@ -16,7 +16,7 @@ async function createBrowser(opts) {
   if (config.BROWSER_EXECUTABLE_PATH) {
     browserOpts.executablePath = config.BROWSER_EXECUTABLE_PATH;
   }
-  browserOpts.headless = false;
+  browserOpts.headless = !config.DEBUG_MODE;
   browserOpts.args = ['--no-sandbox', '--disable-setuid-sandbox', '--disable-font-subpixel-positioning'];
   if (!opts.enableGPU || navigator.userAgent.indexOf('Win') !== -1) {
     browserOpts.args.push('--disable-gpu');
